@@ -1,0 +1,28 @@
+<p>
+  <b>Woeid:</b>
+  <%=h @location.woeid %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @location.name %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @location.country %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%=h @location.lat %>
+</p>
+
+<p>
+  <b>Lon:</b>
+  <%=h @location.lon %>
+</p>
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
