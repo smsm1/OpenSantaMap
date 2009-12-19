@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  woeid: 1
+  reading_time: 2009-12-19 22:25:25
+  temperature: 1
+  weather_condition: 1
+  weather_condition_string: MyString
+
+two:
+  woeid: 1
+  reading_time: 2009-12-19 22:25:25
+  temperature: 1
+  weather_condition: 1
+  weather_condition_string: MyString

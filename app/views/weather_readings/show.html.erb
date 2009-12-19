@@ -1,0 +1,28 @@
+<p>
+  <b>Woeid:</b>
+  <%=h @weather_reading.woeid %>
+</p>
+
+<p>
+  <b>Reading time:</b>
+  <%=h @weather_reading.reading_time %>
+</p>
+
+<p>
+  <b>Temperature:</b>
+  <%=h @weather_reading.temperature %>
+</p>
+
+<p>
+  <b>Weather condition:</b>
+  <%=h @weather_reading.weather_condition %>
+</p>
+
+<p>
+  <b>Weather condition string:</b>
+  <%=h @weather_reading.weather_condition_string %>
+</p>
+
+
+<%= link_to 'Edit', edit_weather_reading_path(@weather_reading) %> |
+<%= link_to 'Back', weather_readings_path %>

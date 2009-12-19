@@ -1,0 +1,28 @@
+<h1>Listing weather_readings</h1>
+
+<table>
+  <tr>
+    <th>Woeid</th>
+    <th>Reading time</th>
+    <th>Temperature</th>
+    <th>Weather condition</th>
+    <th>Weather condition string</th>
+  </tr>
+
+<% @weather_readings.each do |weather_reading| %>
+  <tr>
+    <td><%=h weather_reading.woeid %></td>
+    <td><%=h weather_reading.reading_time %></td>
+    <td><%=h weather_reading.temperature %></td>
+    <td><%=h weather_reading.weather_condition %></td>
+    <td><%=h weather_reading.weather_condition_string %></td>
+    <td><%= link_to 'Show', weather_reading %></td>
+    <td><%= link_to 'Edit', edit_weather_reading_path(weather_reading) %></td>
+    <td><%= link_to 'Destroy', weather_reading, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New weather_reading', new_weather_reading_path %>

@@ -1,0 +1,32 @@
+<h1>Editing weather_reading</h1>
+
+<% form_for(@weather_reading) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :woeid %><br />
+    <%= f.text_field :woeid %>
+  </p>
+  <p>
+    <%= f.label :reading_time %><br />
+    <%= f.datetime_select :reading_time %>
+  </p>
+  <p>
+    <%= f.label :temperature %><br />
+    <%= f.text_field :temperature %>
+  </p>
+  <p>
+    <%= f.label :weather_condition %><br />
+    <%= f.text_field :weather_condition %>
+  </p>
+  <p>
+    <%= f.label :weather_condition_string %><br />
+    <%= f.text_field :weather_condition_string %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @weather_reading %> |
+<%= link_to 'Back', weather_readings_path %>
