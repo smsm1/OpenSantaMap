@@ -1,6 +1,7 @@
 class CreateWeatherReadings < ActiveRecord::Migration
   def self.up
     create_table :weather_readings do |t|
+      t.integer :location_id
       t.integer :woeid
       t.timestamp :reading_time
       t.integer :temperature
@@ -9,6 +10,7 @@ class CreateWeatherReadings < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :weather_readings, :location_id
   end
 
   def self.down
