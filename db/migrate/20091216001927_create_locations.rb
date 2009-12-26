@@ -4,8 +4,8 @@ class CreateLocations < ActiveRecord::Migration
       t.integer :woeid
       t.string :name
       t.string :country
-      t.integer :lat
-      t.string :lon
+      t.integer :latitude
+      t.integer :longitude
 
       t.timestamps
     end

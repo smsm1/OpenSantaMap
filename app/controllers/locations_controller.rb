@@ -40,7 +40,15 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.xml
   def create
-    @location = Location.new(params[:location])
+    GeoPlanet.appid = "suKDGQLV34HxfausezDebOCIJgWVVgMN.IoXX7iPhaPcG1ud6ddzCJpD7NDUojYVd29mhw--"
+    @location = Location.new
+    logger.debug params[:location][:woeid]
+    a = GeoPlanet::Place.new(params[:location][:woeid].to_i)
+    @location.woeid = params[:location][:woeid]
+    @location.lat = a.latitude
+    @location.lon = a.longitude
+    @location.name = a.name
+    @location.country = a.country
 
     respond_to do |format|
       if @location.save
