@@ -4,24 +4,8 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :woeid %><br />
+    <%= f.label :woeid, 'Please enter the Yahoo WOEID: ' %><br />
     <%= f.text_field :woeid %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </p>
-  <p>
-    <%= f.label :lat %><br />
-    <%= f.text_field :lat %>
-  </p>
-  <p>
-    <%= f.label :lon %><br />
-    <%= f.text_field :lon %>
   </p>
   <p>
     <%= f.submit 'Create' %>

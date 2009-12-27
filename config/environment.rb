@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem "json"
   config.gem "rest-client", :lib => "rest_client"
   config.gem "carlosparamio-geoplanet", :source => "http://gems.github.com", :lib => "geoplanet"
+  config.gem "yahoo-weather", :version => ">= 1.2"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
