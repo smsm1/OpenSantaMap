@@ -1,0 +1,16 @@
+<script type="text/javascript">
+  var cloudmade_key = "ed3c002e75b349fab50d7c3436956656";
+</script>
+<%= javascript_include_tag "http://tile.cloudmade.com/wml/0.4/web-maps-lite.js" %>
+<%= javascript_include_tag "mapstraction/mxn.js?(cloudmade)" %>
+<div id="mapdiv" style="height: 98%; width: 98%; position:absolute"></div>
+<script type="text/javascript">
+  var map = new mxn.Mapstraction('mapdiv', 'cloudmade');
+  var latlon = new mxn.LatLonPoint(0, 0);
+  map.setCenterAndZoom(latlon, 3);
+  map.addLargeControls();
+  // Add some markers
+  <% @locations.each do |location| %>
+    <%= map_icon_javascript location.weather_readings.most_recent.first %>
+  <% end %>
+</script>

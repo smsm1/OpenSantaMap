@@ -110,4 +110,8 @@ class LocationsController < ApplicationController
     weather_reading.weather_condition_string = response.condition.text
     @location.weather_readings << weather_reading
   end
+
+  def map
+    @locations = Location.all
+  end
 end
