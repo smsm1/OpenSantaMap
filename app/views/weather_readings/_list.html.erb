@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Reading time</th>
+    <th>Temperature</th>
+    <th>Weather condition code</th>
+    <th>Weather condition string</th>
+  </tr>
+  <% for reading in weather_readings %>
+    <tr>
+      <td><%= reading.reading_time %></td>
+      <td><%= reading.temperature %></td>
+      <td><%= reading.weather_condition %></td>
+      <td><%= reading.weather_condition_string %></td>
+    </tr>
+  <% end %>
+</table>
