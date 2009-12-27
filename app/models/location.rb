@@ -1,5 +1,12 @@
 class Location < ActiveRecord::Base
   has_many :weather_readings
+  validate :on_earth
+
+  def on_earth
+    unless in_world?
+      errors.add_to_base("There was a problem as the latitude and longitude are invalid.")
+    end
+  end
 
   # This scaling factor is used to convert between the float lat/lon that is
   # returned by the API, and the integer lat/lon equivalent that is stored in

@@ -23,6 +23,10 @@
   <%=h @location.lon %>
 </p>
 
+<p>
+  <%= link_to "Check weather", :action => 'update_weather', :id => @location.id %>
+</p>
+
 <h2>Weather readings</h2>
 <%= render :partial => "weather_readings/list", :locals => { :weather_readings => @location.weather_readings } %>
 

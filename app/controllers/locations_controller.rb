@@ -1,3 +1,5 @@
+require 'yahoo-weather'
+
 class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
@@ -89,5 +91,23 @@ class LocationsController < ApplicationController
       format.html { redirect_to(locations_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def update_weather
+    @location = Location.find(params[:id])
+    background_update
+    redirect_to @location
+  end
+
+  def background_update
+    client = YahooWeather::Client.new
+    response = client.lookup_by_woeid(@location.woeid,'c')
+    weather_reading = WeatherReading.new
+    weather_reading.woeid = @location.woeid
+    weather_reading.reading_time = response.condition.date
+    weather_reading.temperature = response.condition.temp
+    weather_reading.weather_condition = response.condition.code
+    weather_reading.weather_condition_string = response.condition.text
+    @location.weather_readings << weather_reading
   end
 end
