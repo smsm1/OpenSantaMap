@@ -1,5 +1,5 @@
 set :application, "opensantamap.org"
-set :repository,  "git@github.com:smsm1/OpenSantaMap.git"
+set :repository,  "git://github.com/smsm1/OpenSantaMap.git"
 set :deploy_to, "/srv/opensantamap.org/rails_source"
 
 set :scm, :git
@@ -41,17 +41,17 @@ after "deploy:finalize_update", "db:symlink"
 namespace :delayed_job do
   desc "Start delayed_job process"
   task :start, :roles => :app do
-    run "cd #{current_path}; script/delayed_job start #{rails_env}"
+    run "cd #{current_path}; script/delayed_job start production"
   end
 
   desc "Stop delayed_job process"
   task :stop, :roles => :app do
-    run "cd #{current_path}; script/delayed_job stop #{rails_env}"
+    run "cd #{current_path}; script/delayed_job stop production"
   end
 
   desc "Restart delayed_job process"
   task :restart, :roles => :app do
-    run "cd #{current_path}; script/delayed_job restart #{rails_env}"
+    run "cd #{current_path}; script/delayed_job restart production"
   end
 end
 
