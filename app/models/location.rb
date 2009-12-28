@@ -9,7 +9,7 @@ class Location < ActiveRecord::Base
     all = Location.all
     for location in all
       recent = location.weather_readings.most_recent.first
-      if recent.created_at < 6.hours.ago
+      if recent.nil? || recent.created_at < 6.hours.ago
         to_return << location
       end
     end
