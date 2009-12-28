@@ -95,23 +95,12 @@ class LocationsController < ApplicationController
 
   def update_weather
     @location = Location.find(params[:id])
-    background_update
+    @location.send_later :background_update
     redirect_to @location
-  end
-
-  def background_update
-    client = YahooWeather::Client.new
-    response = client.lookup_by_woeid(@location.woeid,'c')
-    weather_reading = WeatherReading.new
-    weather_reading.woeid = @location.woeid
-    weather_reading.reading_time = response.condition.date
-    weather_reading.temperature = response.condition.temp
-    weather_reading.weather_condition = response.condition.code
-    weather_reading.weather_condition_string = response.condition.text
-    @location.weather_readings << weather_reading
   end
 
   def map
     @locations = Location.all
+    render :layout => "standard"
   end
 end
